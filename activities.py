@@ -17,6 +17,13 @@ def lists():
     some_list[1] = False
     return some_list
 
+def make_list(a_sequence):
+    a_list = []
+    for element in a_sequence:
+        a_list.append(element)
+        print(a_list)
+    return a_list
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -26,7 +33,9 @@ def main():
     # print(packed[1])
     # print(packed[2])
     # print(packed[3])
-    print(lists())
+    # print(lists())
+    some_seq = [1,2,3,4,5]
+    print(make_list(some_seq))
 
 if __name__ == "__main__":
     main()
