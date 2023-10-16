@@ -24,6 +24,11 @@ def make_list(a_sequence):
         print(a_list)
     return a_list
 
+def scale(a_list, scalar):
+    for index in range(len(a_list)):
+        a_list[index] = a_list[index] * scalar
+    return a_list
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -34,8 +39,11 @@ def main():
     # print(packed[2])
     # print(packed[3])
     # print(lists())
-    some_seq = [1,2,3,4,5]
-    print(make_list(some_seq))
+    # some_seq = [1,2,3,4,5]
+    # print(make_list(some_seq))
+    new_list = make_list(range(1,5))
+    print(new_list)
+    print(scale(new_list, 3))
 
 if __name__ == "__main__":
     main()
