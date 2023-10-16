@@ -10,15 +10,23 @@ def tuples(a_tuple):
 def packer():
     return "a", 1 , "b", 2
 
+def lists():
+    some_list = ["1", True, 3.1, None]
+    for element in some_list:
+        print(element)
+    some_list[1] = False
+    return some_list
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
     # tuples(another_tuple)
-    packed = packer()
-    print(packed[0])
-    print(packed[1])
-    print(packed[2])
-    print(packed[3])
+    # packed = packer()
+    # print(packed[0])
+    # print(packed[1])
+    # print(packed[2])
+    # print(packed[3])
+    print(lists())
 
 if __name__ == "__main__":
     main()
