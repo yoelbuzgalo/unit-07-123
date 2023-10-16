@@ -12,8 +12,8 @@ def packer():
 
 def lists():
     some_list = ["1", True, 3.1, None]
-    for element in some_list:
-        print(element)
+    for index in range(len(some_list)):
+        print(some_list[index])
     some_list[1] = False
     return some_list
 
