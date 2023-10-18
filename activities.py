@@ -123,6 +123,13 @@ def comprehension():
     div_list = [int(x) for x in range(50) if (x % 3 == 0) or (x % 5 == 0)]
     print(div_list)
 
+def make_table(rows, columns, value):
+    empty_list = []
+    for i in range(rows):
+        empty_list[i] = value
+        
+
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -167,9 +174,7 @@ def main():
     # tuple_equality(tup_list_2, tup_list_3)
     # slices()
     # dices(list("abc"))
-    comprehension()
-
-
+    # comprehension()
 
 
 if __name__ == "__main__":
