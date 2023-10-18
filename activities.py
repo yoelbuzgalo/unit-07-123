@@ -1,4 +1,6 @@
 import random
+import arrays
+import array_utils
 
 def tuples(a_tuple):
     print(len(a_tuple))
@@ -59,6 +61,15 @@ def popper(a_list):
         a_list.pop(randomizer)
         print(a_list)
         return popper(a_list)
+    
+def array_insert(an_array, index, value):
+    new_arr = arrays.Array(len(an_array)+1)
+    for i in range(index):
+        new_arr[i] = an_array[i]
+    new_arr[index] = value
+    for i in range(index, len(an_array)):
+        new_arr[i+1] = an_array[i]
+    return new_arr
 
 def main():
     # some_tuple = (1,2,3,4,5)
@@ -80,17 +91,19 @@ def main():
     # mutater(list_1, var_1)
     # print(var_1)
     # print(list_1)
-    l_1 = [1,2,3]
-    l_2 = [4,5,6]
+    # l_1 = [1,2,3]
+    # l_2 = [4,5,6]
     # print(cat(l_1,l_2)+[7,8,9])
     # l_3 = extender(l_1,l_2)
     # print(l_1, l_2, l_3, end="\n")
-    empty_arr = []
-    for i in range(5):
-        inserter(empty_arr, i)
-        print(empty_arr)
+    # empty_arr = []
+    # for i in range(5):
+    #     inserter(empty_arr, i)
+    #     print(empty_arr)
     
-    popper(empty_arr)
+    # popper(empty_arr)
+    some_arr = array_utils.range_array(0,10)
+    print(array_insert(some_arr, 3, 40))
 
 if __name__ == "__main__":
     main()
