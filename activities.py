@@ -111,6 +111,18 @@ def dices(a_list):
         print(a_list[index:index+1])
         a_list = a_list[:index] + a_list[index+1:]
 
+def comprehension():
+    foobar_list = [letter for letter in "foobar"]
+    print(foobar_list)
+    num_list = [0 for _ in range(15)]
+    print(num_list)
+    int_list = [int(x) for x in range(0,13)]
+    print(int_list)
+    even_list = [int(x) for x in range(0, 22) if x % 2 == 0]
+    print(even_list)
+    div_list = [int(x) for x in range(50) if (x % 3 == 0) or (x % 5 == 0)]
+    print(div_list)
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -154,7 +166,8 @@ def main():
     # tuple_equality(tup_list_1, tup_list_3)
     # tuple_equality(tup_list_2, tup_list_3)
     # slices()
-    dices(list("abc"))
+    # dices(list("abc"))
+    comprehension()
 
 
 
