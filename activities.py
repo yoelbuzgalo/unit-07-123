@@ -86,6 +86,13 @@ def rgb_tuple():
     b = random.random()
     return (r,g,b)
 
+def tuple_equality(a_tuple, b_tuple):
+    print(a_tuple, b_tuple, end="\n")
+    if a_tuple is b_tuple:
+        print("is equality operator executed")
+    if a_tuple == b_tuple:
+        print("== equality operator executed")
+
 
 def main():
     # some_tuple = (1,2,3,4,5)
@@ -122,6 +129,15 @@ def main():
     # new_arr, popped = array_pop(some_arr, 5)
     # print(new_arr, popped)
     print(rgb_tuple())
+    list_1 = ["abc"]
+    tup_list_1 = tuple(list_1)
+    tup_list_2 = tuple(list_1)
+    tup_list_3 = tuple([2,1,3])
+    tuple_equality(tup_list_1, tup_list_2)
+    tuple_equality(tup_list_1, tup_list_3)
+    tuple_equality(tup_list_2, tup_list_3)
+
+
 
 if __name__ == "__main__":
     main()
