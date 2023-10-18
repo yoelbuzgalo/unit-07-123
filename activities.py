@@ -71,6 +71,16 @@ def array_insert(an_array, index, value):
         new_arr[i+1] = an_array[i]
     return new_arr
 
+def array_pop(an_array, index):
+    new_arr = arrays.Array(len(an_array)-1)
+    for i in range(index):
+        new_arr[i] = an_array[i]
+    popped = new_arr[index]
+    for i in range(index+1, len(an_array)):
+        new_arr[i-1] = an_array[i]
+    return new_arr, popped
+
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -103,7 +113,9 @@ def main():
     
     # popper(empty_arr)
     some_arr = array_utils.range_array(0,10)
-    print(array_insert(some_arr, 3, 40))
+    # print(array_insert(some_arr, 3, 40))
+    new_arr, popped = array_pop(some_arr, 5)
+    print(new_arr, popped)
 
 if __name__ == "__main__":
     main()
