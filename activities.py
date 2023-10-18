@@ -93,6 +93,19 @@ def tuple_equality(a_tuple, b_tuple):
     if a_tuple == b_tuple:
         print("== equality operator executed")
 
+def slices():
+    quote = list("you get what you give")
+    start = 0
+    end = 0
+    for letter in quote:
+        if letter == " ":
+            print(quote[start:end])
+            start = end + 1
+            end = start
+        else:
+            end += 1
+
+
 
 def main():
     # some_tuple = (1,2,3,4,5)
@@ -128,14 +141,16 @@ def main():
     # print(array_insert(some_arr, 3, 40))
     # new_arr, popped = array_pop(some_arr, 5)
     # print(new_arr, popped)
-    print(rgb_tuple())
-    list_1 = ["abc"]
-    tup_list_1 = tuple(list_1)
-    tup_list_2 = tuple(list_1)
-    tup_list_3 = tuple([2,1,3])
-    tuple_equality(tup_list_1, tup_list_2)
-    tuple_equality(tup_list_1, tup_list_3)
-    tuple_equality(tup_list_2, tup_list_3)
+    # print(rgb_tuple())
+    # list_1 = ["abc"]
+    # tup_list_1 = tuple(list_1)
+    # tup_list_2 = tuple(list_1)
+    # tup_list_3 = tuple([2,1,3])
+    # tuple_equality(tup_list_1, tup_list_2)
+    # tuple_equality(tup_list_1, tup_list_3)
+    # tuple_equality(tup_list_2, tup_list_3)
+    slices()
+
 
 
 
