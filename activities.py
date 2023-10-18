@@ -105,7 +105,11 @@ def slices():
         else:
             end += 1
 
-
+def dices(a_list):
+    while a_list != []:
+        index = random.randrange(len(a_list))
+        print(a_list[index:index+1])
+        a_list = a_list[:index] + a_list[index+1:]
 
 def main():
     # some_tuple = (1,2,3,4,5)
@@ -149,7 +153,8 @@ def main():
     # tuple_equality(tup_list_1, tup_list_2)
     # tuple_equality(tup_list_1, tup_list_3)
     # tuple_equality(tup_list_2, tup_list_3)
-    slices()
+    # slices()
+    dices(list("abc"))
 
 
 
