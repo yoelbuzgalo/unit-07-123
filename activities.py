@@ -1,3 +1,5 @@
+import random
+
 def tuples(a_tuple):
     print(len(a_tuple))
     print(a_tuple)
@@ -49,6 +51,15 @@ def inserter(a_list, value):
     mid_point = len(a_list)//2
     a_list.insert(mid_point, value)
 
+def popper(a_list):
+    if len(a_list) <= 0:
+        return
+    else:
+        randomizer = random.randrange(0, len(a_list))
+        a_list.pop(randomizer)
+        print(a_list)
+        return popper(a_list)
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -78,6 +89,8 @@ def main():
     for i in range(5):
         inserter(empty_arr, i)
         print(empty_arr)
+    
+    popper(empty_arr)
 
 if __name__ == "__main__":
     main()
