@@ -80,6 +80,12 @@ def array_pop(an_array, index):
         new_arr[i-1] = an_array[i]
     return new_arr, popped
 
+def rgb_tuple():
+    r = random.random()
+    g = random.random()
+    b = random.random()
+    return (r,g,b)
+
 
 def main():
     # some_tuple = (1,2,3,4,5)
@@ -110,12 +116,12 @@ def main():
     # for i in range(5):
     #     inserter(empty_arr, i)
     #     print(empty_arr)
-    
     # popper(empty_arr)
-    some_arr = array_utils.range_array(0,10)
+    # some_arr = array_utils.range_array(0,10)
     # print(array_insert(some_arr, 3, 40))
-    new_arr, popped = array_pop(some_arr, 5)
-    print(new_arr, popped)
+    # new_arr, popped = array_pop(some_arr, 5)
+    # print(new_arr, popped)
+    print(rgb_tuple())
 
 if __name__ == "__main__":
     main()
