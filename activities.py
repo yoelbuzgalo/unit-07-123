@@ -45,6 +45,10 @@ def extender(a_list, b_list):
     a_list += b_list
     return a_list
 
+def inserter(a_list, value):
+    mid_point = len(a_list)//2
+    a_list.insert(mid_point, value)
+
 def main():
     # some_tuple = (1,2,3,4,5)
     # another_tuple = tuple("abcdef")
@@ -68,8 +72,12 @@ def main():
     l_1 = [1,2,3]
     l_2 = [4,5,6]
     # print(cat(l_1,l_2)+[7,8,9])
-    l_3 = extender(l_1,l_2)
-    print(l_1, l_2, l_3, end="\n")
+    # l_3 = extender(l_1,l_2)
+    # print(l_1, l_2, l_3, end="\n")
+    empty_arr = []
+    for i in range(5):
+        inserter(empty_arr, i)
+        print(empty_arr)
 
 if __name__ == "__main__":
     main()
