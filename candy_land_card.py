@@ -1,3 +1,5 @@
+import random
+
 def make_deck():
     '''
     This function creates and returns a deck of cards containing all of the cards
@@ -28,3 +30,14 @@ def make_deck():
         deck.append(card)
     
     return deck
+
+def shuffle(a_deck):
+    '''
+    This function shuffles cards in a deck and returns a shuffled deck
+    '''
+    for i in range(len(a_deck)):
+        selected = random.randrange(0, len(a_deck))
+        value = a_deck[i] # Copy the value before swapping
+        a_deck[i] = a_deck[selected] # Swap values
+        a_deck[selected] = value # Put back value to the selected value
+    return a_deck

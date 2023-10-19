@@ -1,4 +1,5 @@
 import candy_land_card
+import random
 
 def test_make_deck_len():
     # Setup
@@ -70,3 +71,40 @@ def test_special_cards():
 
     # Analysis
     assert result[-1] == expected
+
+def test_shuffle_cards_17():
+    # Setup
+    random.seed(1)
+    deck = candy_land_card.make_deck()
+    expected = deck[17]
+
+    # Invoke
+    result = candy_land_card.shuffle(candy_land_card.make_deck())
+
+    # Analysis
+    assert result[0] == expected
+
+# def test_shuffle_cards_8():
+#     # Setup
+#     random.seed(1)
+#     deck = candy_land_card.make_deck()
+#     expected = (1, 'Y', 'SY')
+
+#     # Invoke
+#     result = candy_land_card.shuffle(deck)
+
+#     # Analysis
+#     assert result[8] == expected
+
+# def test_shuffle_cards_32():
+#     # Setup
+#     random.seed(1)
+#     deck = candy_land_card.make_deck()
+#     expected = (1, 'Y', 'SY')
+
+#     # Invoke
+#     result = candy_land_card.shuffle(deck)
+
+#     # Analysis
+#     assert result[32] == expected
+    
