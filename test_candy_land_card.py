@@ -84,27 +84,26 @@ def test_shuffle_cards_17():
     # Analysis
     assert result[0] == expected
 
-# def test_shuffle_cards_8():
-#     # Setup
-#     random.seed(1)
-#     deck = candy_land_card.make_deck()
-#     expected = (1, 'Y', 'SY')
+def test_shuffle_cards_8():
+    # Setup
+    random.seed(1)
+    deck = candy_land_card.make_deck()
+    expected = deck[8]
 
-#     # Invoke
-#     result = candy_land_card.shuffle(deck)
+    # Invoke
+    result = candy_land_card.shuffle(candy_land_card.make_deck())
 
-#     # Analysis
-#     assert result[8] == expected
+    # Analysis
+    assert result[1] == expected
 
-# def test_shuffle_cards_32():
-#     # Setup
-#     random.seed(1)
-#     deck = candy_land_card.make_deck()
-#     expected = (1, 'Y', 'SY')
+def test_shuffle_cards_32():
+    # Setup
+    random.seed(1)
+    deck = candy_land_card.make_deck()
+    expected = deck[32]
 
-#     # Invoke
-#     result = candy_land_card.shuffle(deck)
+    # Invoke
+    result = candy_land_card.shuffle(candy_land_card.make_deck())
 
-#     # Analysis
-#     assert result[32] == expected
-    
+    # Analysis
+    assert result[2] == expected
