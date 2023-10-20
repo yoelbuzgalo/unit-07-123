@@ -141,6 +141,11 @@ def sorted_test(a_list):
     b_list = sorted(a_list)
     print(b_list)
 
+def sort_test(a_list):
+    print(a_list)
+    a_list.sort()
+    print(a_list)
+
 # def make_table(rows, columns, value):
 #     table = [[value for _ in range(columns) for _ in range(rows)]]
 #     return table
@@ -190,8 +195,10 @@ def main():
     # slices()
     # dices(list("abc"))
     # comprehension()
-    sorted_test(random_list(10))
-    sorted_test(random_list(20))
+    # sorted_test(random_list(10))
+    # sorted_test(random_list(20))
+    sort_test(random_list(10))
+    sort_test(random_list(20))
     
 
 
