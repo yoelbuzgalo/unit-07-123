@@ -79,7 +79,7 @@ def test_shuffle_cards_17():
     expected = deck[17]
 
     # Invoke
-    result = candy_land_card.shuffle(candy_land_card.make_deck())
+    result = candy_land_card.shuffle(deck)
 
     # Analysis
     assert result[0] == expected
@@ -91,7 +91,7 @@ def test_shuffle_cards_8():
     expected = deck[8]
 
     # Invoke
-    result = candy_land_card.shuffle(candy_land_card.make_deck())
+    result = candy_land_card.shuffle(deck)
 
     # Analysis
     assert result[1] == expected
@@ -103,7 +103,51 @@ def test_shuffle_cards_32():
     expected = deck[32]
 
     # Invoke
-    result = candy_land_card.shuffle(candy_land_card.make_deck())
+    result = candy_land_card.shuffle(deck)
 
     # Analysis
     assert result[2] == expected
+
+def test_draw_card_empty():
+    # Setup
+    deck = []
+    expected = None
+
+    # Invoke
+    result = candy_land_card.draw(deck) 
+
+    # Analysis
+    assert result == expected
+
+def test_draw_card_regular_deck():
+    # Setup
+    deck = candy_land_card.make_deck()
+    expected = deck[-1]
+
+    # Invoke
+    result = candy_land_card.draw(deck)
+
+    assert result == expected
+
+def test_draw_card_shuffled_deck():
+    # Setup
+    deck = candy_land_card.make_deck()
+    shuffled_deck = candy_land_card.shuffle(deck)
+    expected = shuffled_deck[-1]
+
+    # Invoke
+    result = candy_land_card.draw(shuffled_deck)
+
+    assert result == expected
+
+def test_draw_card_shuffled_deck_second():
+    # Setup
+    deck = candy_land_card.make_deck()
+    shuffled_deck = candy_land_card.shuffle(deck)
+    expected = shuffled_deck[-2]
+
+    # Invoke
+    candy_land_card.draw(shuffled_deck) # Invoke first draw
+    result = candy_land_card.draw(shuffled_deck) # Invoke second draw
+
+    assert result == expected

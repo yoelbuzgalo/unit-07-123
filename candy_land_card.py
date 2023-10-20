@@ -29,13 +29,27 @@ def make_deck():
     for card in card_specials:
         deck.append(card)
     
-    return deck
+    return deck # Return the deck
 
 def shuffle(a_deck):
     '''
     This function shuffles cards in a deck and returns a shuffled deck
     '''
     for index in range(len(a_deck)):
-        selected = random.randrange(0, len(a_deck))
-        a_deck[index] = a_deck[selected]
-    return a_deck
+        selected = random.randrange(0, len(a_deck)) # Selects a random index
+        a_deck[index] = a_deck[selected] # Change at the given index value with the new random index value
+    return a_deck # Return shuffled deck
+
+def draw(a_deck):
+    '''
+    This function picks a card out of the deck and returns it
+    '''
+    # Guard clause, returns None if a passed deck is empty
+    if len(a_deck) == 0:
+        return None
+    
+    picked_card = a_deck.pop() # Pops a card out of the deck, and stores it in picked_card variable
+
+    return picked_card # Return picked_card variable
+    
+    
