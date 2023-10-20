@@ -151,15 +151,20 @@ def sort_cards(hand):
     hand.sort(key=suit_key)
     print(hand)
 
+# def simple_suit_key(card):
+#     rank, suit = card
+#     return suit, rank
+
 def suit_key(card):
-    if card[1] == 'C':
-        return 0
-    elif card[1] == 'D':
-        return 1
-    elif card[1] == 'H':
-        return 2
-    elif card[1] == 'S':
-        return 3
+    rank, suit = card
+    if suit == 'C':
+        return rank
+    elif suit == 'D':
+        return rank + 100
+    elif suit == 'H':
+        return rank + 200
+    elif suit == 'S':
+        return rank + 300
     
 
 # def make_table(rows, columns, value):
