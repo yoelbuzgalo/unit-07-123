@@ -132,6 +132,15 @@ def make_table(rows, columns, value):
             inner_list.append(value)
     return table
 
+def random_list(size):
+    a_list = [random.randrange(0,100) for x in range(size)]
+    return a_list
+
+def sorted_test(a_list):
+    print(a_list)
+    b_list = sorted(a_list)
+    print(b_list)
+
 # def make_table(rows, columns, value):
 #     table = [[value for _ in range(columns) for _ in range(rows)]]
 #     return table
@@ -181,6 +190,9 @@ def main():
     # slices()
     # dices(list("abc"))
     # comprehension()
+    sorted_test(random_list(10))
+    sorted_test(random_list(20))
+    
 
 
 if __name__ == "__main__":
