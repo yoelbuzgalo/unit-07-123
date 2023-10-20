@@ -146,6 +146,22 @@ def sort_test(a_list):
     a_list.sort()
     print(a_list)
 
+def sort_cards(hand):
+    print(hand)
+    hand.sort(key=suit_key)
+    print(hand)
+
+def suit_key(card):
+    if card[1] == 'C':
+        return 0
+    elif card[1] == 'D':
+        return 1
+    elif card[1] == 'H':
+        return 2
+    elif card[1] == 'S':
+        return 3
+    
+
 # def make_table(rows, columns, value):
 #     table = [[value for _ in range(columns) for _ in range(rows)]]
 #     return table
@@ -199,6 +215,9 @@ def main():
     # sorted_test(random_list(20))
     sort_test(random_list(10))
     sort_test(random_list(20))
+
+    deck = [(2, "D"), (3, "H"), (11, "S"), (13, "C"), (14, "H")]
+    sort_cards(deck)
     
 
 
