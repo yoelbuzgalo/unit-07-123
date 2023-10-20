@@ -124,11 +124,17 @@ def comprehension():
     print(div_list)
 
 def make_table(rows, columns, value):
-    empty_list = []
-    for i in range(rows):
-        empty_list[i] = value
-        
+    table = []
+    for _ in range(rows):
+        inner_list = []
+        table.append(inner_list)
+        for _ in range(columns):
+            inner_list.append(value)
+    return table
 
+# def make_table(rows, columns, value):
+#     table = [[value for _ in range(columns) for _ in range(rows)]]
+#     return table
 
 def main():
     # some_tuple = (1,2,3,4,5)
