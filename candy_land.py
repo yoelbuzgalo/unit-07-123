@@ -1,5 +1,7 @@
 import candy_land_card
 
+loose_turn_arr = []
+
 def create_board():
     '''
     This function creates a list of positions/spots for the candy land game.
@@ -8,6 +10,7 @@ def create_board():
     colors = ('R', 'P', 'Y', 'B', 'O', 'G') * 23 # Calculated from 134 possible positions total in board
     special_spots = ('CC', 'IC', 'JO', 'GP', 'LP', 'PS', 'BB', 'MC')
     wild_spots = ('LI', 'BS60', 'BS41')
+    
 
 
 
@@ -45,24 +48,34 @@ def create_board():
             board.append(colors[index_offset])
     return board
 
+def loose_turn(player_color):
+    loose_turn_arr.append(player_color)
+
 def take_turn(player, board, deck):
     
-    player_color, player_location = player # Unpack the player tuple passed into this function
+    player_color, player_location = player # Unpack the player list passed into this function
 
     card_type, card_color, card_name = candy_land_card.draw(deck) # Draw a card from the deck passed into this function using the candy_land_card module and unpack it
 
-    print("Card type:", card_type, "Card color:", card_color)
+    print("Player", player_color, "drew a", card_name, "card.")
 
+    # Checks if any current player calling this function has loose turn status
+    if len(loose_turn_arr) > 0:
+        for i in range(len(loose_turn_arr)):
+            if loose_turn_arr[i] == player_color:
+                loose_turn_arr.pop(i)
+                return
+
+    # Checks if the card type is single or double, then loops through available color match of given amount of move
     if card_type == 1:
         for i in range(player_location, len(board)):
-            # print(board[i][0])
             if board[i][0] == card_color:
                 player_location = i
                 break
         else:
             player_location = 134 # If no color matches after iterating over possible matches, then assume that player wins (MC)
     elif card_type == 2:
-        count = 0 # Initialize counter
+        count = 0 # Initialize counter for double move
         for i in range(player_location, len(board)):
             if board[i][0] == card_color and count == 1:
                 player_location = i
@@ -74,16 +87,19 @@ def take_turn(player, board, deck):
     else:
         player_location = card_type # Otherwise change player's location to special card's location
 
-    # If board location contains 'BS..', it will automatically go ahead skip them to new index
-
+    # If board location contains 'BS..', it will automatically go ahead skip them to new index or 'LI', will loose turn too
     if board[player_location][1:] == 'BS60':
         player_location = 60
+        print("Player", player_color, "took a shortcut!")
     elif board[player_location][1:] == 'BS41':
         player_location = 41
-    
-    print(player_location)
+        print("Player", player_color, "took a shortcut!")
+    elif board[player_location][1:] == 'LI':
+        loose_turn(player_color)
 
-    return player_location # Lastly return the player tuple with the updated value
+    player[1] = player_location
+
+    return player[1] # Lastly return the player's index with the updated value
 
 
 
