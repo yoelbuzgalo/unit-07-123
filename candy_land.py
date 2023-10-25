@@ -73,7 +73,8 @@ def take_turn(player, board, deck):
                 player_location = i
                 break
         else:
-            player_location = 134 # If no color matches after iterating over possible matches, then assume that player wins (MC)
+            player[1] = player_location = 134 # If no color matches after iterating over possible matches, then assume that player wins (MC)
+            return player_location
     elif card_type == 2:
         count = 0 # Initialize counter for double move
         for i in range(player_location, len(board)):
@@ -83,7 +84,8 @@ def take_turn(player, board, deck):
             elif board[i][0] == card_color:
                 count += 1
         else:
-            player_location = 134 # If no color matches after iterating over possible matches, then assume that player wins (MC)
+            player[1] = player_location = 134 # If no color matches after iterating over possible matches, then assume that player wins (MC)
+            return player_location
     else:
         player_location = card_type # Otherwise change player's location to special card's location
 
@@ -96,13 +98,14 @@ def take_turn(player, board, deck):
         print("Player", player_color, "took a shortcut!")
     elif board[player_location][1:] == 'LI':
         loose_turn(player_color)
+        print("Player", player_color, "lost a turn!")
 
     player[1] = player_location
 
     return player[1] # Lastly return the player's index with the updated value
 
 def play_game(num_players):
-
+    
     board = create_board()
     deck = candy_land_card.shuffle(candy_land_card.make_deck())
 
@@ -122,7 +125,7 @@ def play_game(num_players):
     while current_player_index >= 0:
         
         # Reset current player to 0 if it has reached to to end of number of players
-        if current_player_index >= (len(players)-1):
+        if current_player_index > (len(players)-1):
             current_player_index = 0
 
         current_player = players[current_player_index]
@@ -139,7 +142,7 @@ def play_game(num_players):
 
 
 def main():
-    play_game(2)
+    play_game(4)
 
 if __name__ == "__main__":
     main()
