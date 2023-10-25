@@ -109,6 +109,8 @@ def play_game(num_players):
     board = create_board()
     deck = candy_land_card.shuffle(candy_land_card.make_deck())
 
+
+
     if num_players > 6 or num_players < 0:
         print("Invalid num of players")
         return
@@ -123,6 +125,10 @@ def play_game(num_players):
     current_player_index = 0
 
     while current_player_index >= 0:
+
+        # Check if deck is empty or not, if it is then create new deck and shuffle it
+        if len(deck) == 0:
+            deck = candy_land_card.shuffle(candy_land_card.make_deck())
         
         # Reset current player to 0 if it has reached to to end of number of players
         if current_player_index > (len(players)-1):
