@@ -101,12 +101,45 @@ def take_turn(player, board, deck):
 
     return player[1] # Lastly return the player's index with the updated value
 
+def play_game(num_players):
+
+    board = create_board()
+    deck = candy_land_card.shuffle(candy_land_card.make_deck())
+
+    if num_players > 6 or num_players < 0:
+        print("Invalid num of players")
+        return
+    
+    colors = ('R', 'P', 'Y', 'B', 'O', 'G')
+    players = []
+    
+    for i in range(num_players):
+        create_player = [colors[i], 0]
+        players.append(create_player)
+
+    current_player_index = 0
+
+    while current_player_index >= 0:
+        
+        # Reset current player to 0 if it has reached to to end of number of players
+        if current_player_index >= (len(players)-1):
+            current_player_index = 0
+
+        current_player = players[current_player_index]
+
+        player_result = take_turn(current_player, board, deck)
+
+        if player_result == 134:
+            print("Player", players[current_player_index], "has won the game!")
+            return
+        else:
+            print("Player", players[current_player_index], "has landed on", board[current_player[1]][0])
+            current_player_index += 1
+
 
 
 def main():
-    board = create_board()
-    shuffled_deck = candy_land_card.shuffle(candy_land_card.make_deck())
-    print(take_turn(['B', 0], board, shuffled_deck))
+    play_game(2)
 
 if __name__ == "__main__":
     main()
